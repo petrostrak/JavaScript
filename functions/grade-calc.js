@@ -5,7 +5,7 @@
 
 
 function testResult(studentScore, totalPossibleScore = 20) {
-  let percentage = (studentScore / totalPossibleScore) * 100;
+  const percentage = (studentScore / totalPossibleScore) * 100;
   let letterGrade = '';
   if (percentage >= 90) {
     letterGrade = 'A';
@@ -21,5 +21,5 @@ function testResult(studentScore, totalPossibleScore = 20) {
   return `You got an ${letterGrade} (${percentage}%)`
 }
 
-let result = testResult(14);
+const result = testResult(14);
 console.log(result);
