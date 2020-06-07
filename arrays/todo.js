@@ -1,16 +1,27 @@
-const toDo = ['wake up', 'brush teeth', 'make coffe', 'study Js', 'sleep'];
+const toDo = ['wake up', 'brush teeth', 'make coffee', 'study Js', 'sleep'];
 
 console.log(`You have ${toDo.length} things to do!`);
+
+for(let i = toDo.length -1; i >= 0; i--){
+  const counter = i + 1;
+  console.log(`${counter}. ${toDo[i]}`);
+}
+
+console.log(toDo.indexOf('make coffee')); // if the result is -1, it means that there was no match.
+
 //console.log(`The first thing is to ${toDo[0]} and the last to ${toDo[toDo.length -1]}`);
 
-toDo.forEach(function(i, index){
-  console.log(`${index + 1}. ${i}`);
-})
+//toDo.forEach(function(i, index){
+//   console.log(`${index + 1}. ${i}`);
+// })
 
 
 // for(let i = 0; i < toDo.length; i++){
 //   console.log(toDo[i]);
 // }
+//
+// console.log('***reversing***');
+
 
 // delete 3rd input
 // add new item at the end
