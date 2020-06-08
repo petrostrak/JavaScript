@@ -36,6 +36,32 @@ const gameList = [{
   isGood : false
 }]
 
+const filters = {
+  searchText : ''
+}
+
+function renderGames(games, filter){
+  const filteredGames = games.filter(function(game){
+    return game.title.toLowerCase().includes(filters.searchText.toLowerCase());
+  })
+
+  document.querySelector('#games').innerHTML = '';
+
+  filteredGames.forEach(function(game){
+    const createEl = document.createElement('p');
+    createEl.textContent = game.title;
+    document.querySelector('#games').appendChild(createEl); 
+  })
+  
+}
+
+renderGames(gameList, filters);
+
+document.querySelector('#new-game').addEventListener('input', function(event){
+  filters.searchText = event.target.value;
+  renderGames(gameList, filters);
+})
+
 const gameRate = gameList.filter(function(rating){
   return !rating.isGood;
 })
@@ -68,6 +94,3 @@ document.querySelector('#delete').addEventListener('click', function(){
   })
 })
 
-document.querySelector('#new-game').addEventListener('input', function(event){
-  console.log(event.target.value);
-})
