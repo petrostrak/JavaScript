@@ -248,6 +248,7 @@ const filters = {
     searchText : ''
 }
 
+// renders the objects of the list to the browser
 function renderCountries(countries, filters){
     const filteredCountry = countries.filter(function(country){
         return country.name.toLowerCase().includes(filters.searchText.toLowerCase());
@@ -262,6 +263,7 @@ function renderCountries(countries, filters){
     })
 }
 
+// filters the input in action
 document.querySelector('#input-country').addEventListener('input', function(event){
     filters.searchText = event.target.value;
     renderCountries(countries, filters);

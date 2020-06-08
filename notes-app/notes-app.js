@@ -1,102 +1,43 @@
-// console.log('this is from a a different path');
-
-// // query and remove
-// // const p = document.querySelector('p')
-// // console.log(p);
-// // p.remove();
-
-// // query all and remove
-// const ps = document.querySelectorAll('p')
-// ps.forEach(function(p){
-//   p.textContent = 'Practice makes perfect'
-//   //console.log(p.textContent);
-//   //p.remove();
-// })
-
-// Add new element in the HTML 
-// const newParagraph = document.createElement('p');
-// newParagraph.textContent = 'This is a new element created with js!';
-// document.querySelector('body').appendChild(newParagraph);
-
-const gameList = [{
-  title : 'Death Stranding',
-  gender: 'Action / Adventure',
-  isGood : false
+const notes = [{
+  title: 'my next trip',
+  body: 'I would like to go to Spain'
 }, {
-  title : 'Bloodbonre',
-  gender : 'Horror',
-  isGood : true
+  title: 'Habbits to work on',
+  body: 'Exercise. Eating a bit better.'
 }, {
-  title : 'Sekiro',
-  gender : 'Action',
-  isGood : true
-}, {
-  title : 'Samurai Shodawn',
-  gender : 'fighting',
-  isGood : false
+  title: 'Office modification',
+  body: 'Get a new seat'
 }]
 
 const filters = {
-  searchText : ''
+  searchText: ''
 }
 
-function renderGames(games, filter){
-  const filteredGames = games.filter(function(game){
-    return game.title.toLowerCase().includes(filters.searchText.toLowerCase());
+const renderNotes = function (notes, filters) {
+  const filteredNotes = notes.filter(function (note) {
+      return note.title.toLowerCase().includes(filters.searchText.toLowerCase())
   })
 
-  document.querySelector('#games').innerHTML = ''; 
-
-  filteredGames.forEach(function(game){
-    const createEl = document.createElement('p');
-    createEl.textContent = game.title;
-    document.querySelector('#games').appendChild(createEl); 
-  })
+  document.querySelector('#notes').innerHTML = ''
   
+  filteredNotes.forEach(function (note) {
+      const noteEl = document.createElement('p')
+      noteEl.textContent = note.title
+      document.querySelector('#notes').appendChild(noteEl)
+  })
 }
 
-renderGames(gameList, filters);
+renderNotes(notes, filters)
 
-gameList.forEach(function(game){
-  const addedGame = document.createElement('p');
-  addedGame.textContent = game.title;
-  document.querySelector('body').appendChild(addedGame);
+document.querySelector('#create-note').addEventListener('click', function (e) {
+  e.target.textContent = 'The button was clicked'
 })
 
-document.querySelector('#click').addEventListener('click', function(event){
-  event.target.textContent = 'Thanks!'
+document.querySelector('#search-text').addEventListener('input', function (e) {
+  filters.searchText = e.target.value
+  renderNotes(notes, filters)
 })
 
-document.querySelector('#title-form').addEventListener('submit', function(event){
-  event.preventDefault();
-  gameList.push({
-    title : event.target.elements.title.value,
-    gender : event.target.elements.gender.value,
-    isGood : true
-  })
-  renderGames(gameList, filters);
-  event.target.elements.title.value = '';
-  event.target.elements.gender.value = '';
+document.querySelector('#for-fun').addEventListener('change', function (e) {
+  console.log(e.target.checked)
 })
-
-// document.querySelector('#delete').addEventListener('click', function(event){
-//   event.target.textContent = 'Deleted!'
-// })
-
-// document.querySelector('#update').addEventListener('click', function(event){
-//   event.target.textContent = 'Updated!'
-// })
-
-// document.querySelector('#delete').addEventListener('click', function(){
-//   document.querySelectorAll('.game').forEach(function(game){
-//     game.remove();
-//   })
-// })
-
-// const gameRate = gameList.filter(function(rating){
-//   return !rating.isGood;
-// })
-
-// const summery = document.createElement('p');
-// summery.textContent = `You have ${gameRate.length} games that are not so good.`
-// document.querySelector('body').appendChild(summery);
