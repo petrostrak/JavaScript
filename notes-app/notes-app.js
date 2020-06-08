@@ -45,7 +45,7 @@ function renderGames(games, filter){
     return game.title.toLowerCase().includes(filters.searchText.toLowerCase());
   })
 
-  document.querySelector('#games').innerHTML = '';
+  document.querySelector('#games').innerHTML = ''; 
 
   filteredGames.forEach(function(game){
     const createEl = document.createElement('p');
@@ -62,19 +62,20 @@ document.querySelector('#new-game').addEventListener('input', function(event){
   renderGames(gameList, filters);
 })
 
-const gameRate = gameList.filter(function(rating){
-  return !rating.isGood;
-})
-
-const summery = document.createElement('p');
-summery.textContent = `You have ${gameRate.length} games that are not so good.`
-document.querySelector('body').appendChild(summery);
-
 gameList.forEach(function(game){
   const addedGame = document.createElement('p');
   addedGame.textContent = game.title;
   document.querySelector('body').appendChild(addedGame);
 })
+
+// const gameRate = gameList.filter(function(rating){
+//   return !rating.isGood;
+// })
+
+// const summery = document.createElement('p');
+// summery.textContent = `You have ${gameRate.length} games that are not so good.`
+// document.querySelector('body').appendChild(summery);
+
 
 document.querySelector('#click').addEventListener('click', function(event){
   event.target.textContent = 'Thanks!'
