@@ -7,20 +7,17 @@
   <title>Test</title>
 </head>
 <body>
-  <p>This is the Js bootcamp</p>
-  <h1>Example heading one</h1>
-  <h2>Example heading two</h2>
-  <p>Second paragraph</p>
-  <input id="new-game" type="text" placeholder="add new game">
-  <button id="add-game">Add!</button>
+  <form id="title-form">
+    <input type="text" placeholder="Title" name="title">
+    <input type="text" placeholder="Gender" name="gender">
+    <select name="is-good" id="">
+      <option value="true">Good</option>
+      <option value="false">Not Good</option>
+    </select>
+    <button>Sumbit</button>
+  </form>
   <div id="games"></div>
-  <!-- <p class="game">Death Stranding</p>
-  <p class="game">Dark Souls</p>
-  <p class="game">Sekiro</p>
-  <p class="game">Bloodborne</p> -->
   <button id="click">Click me!</button>
-  <button id="delete">Delete</button>
-  <button id="update">Update</button>
   <script src="notes-app.js"></script>
 </body>
 </html>

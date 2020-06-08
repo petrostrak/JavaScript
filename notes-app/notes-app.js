@@ -57,16 +57,41 @@ function renderGames(games, filter){
 
 renderGames(gameList, filters);
 
-document.querySelector('#new-game').addEventListener('input', function(event){
-  filters.searchText = event.target.value;
-  renderGames(gameList, filters);
-})
-
 gameList.forEach(function(game){
   const addedGame = document.createElement('p');
   addedGame.textContent = game.title;
   document.querySelector('body').appendChild(addedGame);
 })
+
+document.querySelector('#click').addEventListener('click', function(event){
+  event.target.textContent = 'Thanks!'
+})
+
+document.querySelector('#title-form').addEventListener('submit', function(event){
+  event.preventDefault();
+  gameList.push({
+    title : event.target.elements.title.value,
+    gender : event.target.elements.gender.value,
+    isGood : true
+  })
+  renderGames(gameList, filters);
+  event.target.elements.title.value = '';
+  event.target.elements.gender.value = '';
+})
+
+// document.querySelector('#delete').addEventListener('click', function(event){
+//   event.target.textContent = 'Deleted!'
+// })
+
+// document.querySelector('#update').addEventListener('click', function(event){
+//   event.target.textContent = 'Updated!'
+// })
+
+// document.querySelector('#delete').addEventListener('click', function(){
+//   document.querySelectorAll('.game').forEach(function(game){
+//     game.remove();
+//   })
+// })
 
 // const gameRate = gameList.filter(function(rating){
 //   return !rating.isGood;
@@ -75,23 +100,3 @@ gameList.forEach(function(game){
 // const summery = document.createElement('p');
 // summery.textContent = `You have ${gameRate.length} games that are not so good.`
 // document.querySelector('body').appendChild(summery);
-
-
-document.querySelector('#click').addEventListener('click', function(event){
-  event.target.textContent = 'Thanks!'
-})
-
-// document.querySelector('#delete').addEventListener('click', function(event){
-//   event.target.textContent = 'Deleted!'
-// })
-
-document.querySelector('#update').addEventListener('click', function(event){
-  event.target.textContent = 'Updated!'
-})
-
-document.querySelector('#delete').addEventListener('click', function(){
-  document.querySelectorAll('.game').forEach(function(game){
-    game.remove();
-  })
-})
-
