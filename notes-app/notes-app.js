@@ -49,3 +49,7 @@ gameList.forEach(function(game){
   addedGame.textContent = game.title;
   document.querySelector('body').appendChild(addedGame);
 })
+
+document.querySelector('button').addEventListener('click', function(event){
+  event.target.textContent = 'Thanks!'
+})
