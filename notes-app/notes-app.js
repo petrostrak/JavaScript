@@ -50,6 +50,20 @@ gameList.forEach(function(game){
   document.querySelector('body').appendChild(addedGame);
 })
 
-document.querySelector('button').addEventListener('click', function(event){
+document.querySelector('#click').addEventListener('click', function(event){
   event.target.textContent = 'Thanks!'
+})
+
+// document.querySelector('#delete').addEventListener('click', function(event){
+//   event.target.textContent = 'Deleted!'
+// })
+
+document.querySelector('#update').addEventListener('click', function(event){
+  event.target.textContent = 'Updated!'
+})
+
+document.querySelector('#delete').addEventListener('click', function(){
+  document.querySelectorAll('.game').forEach(function(game){
+    game.remove();
+  })
 })
