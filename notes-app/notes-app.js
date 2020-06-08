@@ -67,3 +67,7 @@ document.querySelector('#delete').addEventListener('click', function(){
     game.remove();
   })
 })
+
+document.querySelector('#new-game').addEventListener('input', function(event){
+  console.log(event.target.value);
+})
